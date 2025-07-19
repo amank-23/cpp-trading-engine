@@ -2,27 +2,43 @@
 build/
 cmake-build-*/
 
-# Compiled objects
+# Compiled binaries
+*.exe
+*.out
+*.app
+TradingSystem
+BackendTest
+RunTests
+test_runner
+
+# Compiled Object files
 *.o
 *.obj
+*.a
+*.lib
+*.so
+*.dll
 
-# Executables
-TradingSystem
-*.exe
-
-# CMake cache
+# CMake
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 Makefile
+*.cmake
+!CMakeLists.txt
+
+# VS Code
+.vscode/
 
 # IDE files
-.vscode/
 .idea/
+*.iml
+*.vcxproj*
+*.sln
 *.swp
 *.swo
 
-# OS files
+# OS generated files
 .DS_Store
 Thumbs.db
 
@@ -37,3 +53,12 @@ data/*.dat
 # Temporary files
 *~
 *.tmp
+
+# Test results
+Testing/
+
+# Keep assets for README
+!assets/screenshots/*.png
+!assets/screenshots/*.jpg
+!assets/videos/*.mp4
+!assets/videos/*.gif
