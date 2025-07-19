@@ -1,0 +1,37 @@
+    cmake_minimum_required(VERSION 3.16)
+project(TradingSystem LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Set build type
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
+# --- Project Source Files ---
+# For now, just include main.cpp - we'll add more sources as we build them
+add_executable(TradingSystem src/main.cpp)
+
+# --- Find System Packages ---
+find_package(Threads REQUIRED)
+
+# --- Include Directories ---
+target_include_directories(TradingSystem PUBLIC
+    "${CMAKE_CURRENT_SOURCE_DIR}/src"
+)
+
+# --- Link Libraries ---
+target_link_libraries(TradingSystem PRIVATE
+    Threads::Threads
+)
+
+# --- Compiler Flags ---
+target_compile_options(TradingSystem PRIVATE -Wall -Wextra -Wpedantic)
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+    target_compile_options(TradingSystem PRIVATE -O3)
+endif()
+
+# --- Enable Testing ---
+enable_testing()

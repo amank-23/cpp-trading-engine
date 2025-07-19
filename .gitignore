@@ -1,0 +1,39 @@
+# Build directories
+build/
+cmake-build-*/
+
+# Compiled objects
+*.o
+*.obj
+
+# Executables
+TradingSystem
+*.exe
+
+# CMake cache
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Data files (market data can be large)
+data/*.csv
+data/*.bin
+data/*.dat
+
+# Temporary files
+*~
+*.tmp
