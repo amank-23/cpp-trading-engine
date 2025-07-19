@@ -9,7 +9,6 @@
 [![CMake](https://img.shields.io/badge/CMake-3.16+-green.svg)](https://cmake.org/)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/amank-23/cpp-trading-engine)
 [![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey.svg)](https://github.com/amank-23/cpp-trading-engine)
-[![Stars](https://img.shields.io/github/stars/amank-23/cpp-trading-engine?style=social)](https://github.com/amank-23/cpp-trading-engine/stargazers)
 
 **[View Demo](#demo) · [Documentation](#documentation) · [Report Bug](https://github.com/amank-23/cpp-trading-engine/issues) · [Request Feature](https://github.com/amank-23/cpp-trading-engine/issues)**
 
@@ -25,8 +24,6 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Testing](#testing)
-- [Performance](#performance)
-- [Contributing](#contributing)
 - [License](#license)
 
 ---
@@ -36,12 +33,11 @@
 A high-performance, enterprise-grade trading system implementing core financial market infrastructure components. This system demonstrates advanced C++ programming techniques, real-time data processing, and financial software architecture patterns used in production trading environments.
 
 ### Key Highlights
-- **High Performance**: Sub-millisecond order matching
-- **Thread Safe**: Concurrent multi-threaded architecture
-- **Real-time GUI**: Live ImGui dashboard
-- **Risk Management**: Pre-trade and position controls
-- **Fully Tested**: Comprehensive unit and integration tests
-- **Production Ready**: Enterprise-level code quality
+- **Multi-threaded Architecture**: Concurrent order processing and GUI updates
+- **Real-time GUI**: Live ImGui dashboard with order book visualization
+- **Risk Management**: Pre-trade validation and position tracking
+- **WebSocket Integration**: Real-time market data handling
+- **Cross-platform**: Linux, Windows, and macOS support
 
 ---
 
@@ -88,17 +84,9 @@ A high-performance, enterprise-grade trading system implementing core financial 
 
 ### Live Trading System in Action
 
-<div align="center">
-
-<video width="800" controls>
-  <source src="https://github.com/amank-23/cpp-trading-engine/raw/main/assets/videos/Demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-</div>
+**[View Demo Video](https://github.com/amank-23/cpp-trading-engine/raw/main/assets/videos/Demo.mp4)**
 
 *30-second demo showing real-time order matching, GUI updates, and risk management*
-https://github.com/amank-23/cpp-trading-engine/raw/main/assets/videos/Demo.mp4
 
 ### Screenshots
 
@@ -330,129 +318,17 @@ if (risk_engine->check_pre_trade_risk(*order)) {
 
 ## Testing
 
-### Test Suite Overview
-
-| Test Type | Coverage | Description |
-|-----------|----------|-------------|
-| **Unit Tests** | 95%+ | Individual component testing |
-| **Integration Tests** | 90%+ | End-to-end workflow testing |
-| **Performance Tests** | 100% | Latency and throughput validation |
-| **Risk Tests** | 100% | Risk management validation |
-
 ### Running Tests
 
 ```bash
-# All tests
+# Run unit tests
 make test
 
-# Specific test categories  
-./RunTests --gtest_filter="OrderBook*"
-./RunTests --gtest_filter="Risk*" 
-./RunTests --gtest_filter="WebSocket*"
-
-# Verbose output
-./RunTests --gtest_output=verbose
+# Or run directly
+./RunTests
 ```
 
-### Test Results
-
-```
-[==========] Running 15 tests from 4 test suites.
-[----------] Global test environment set-up.
-[----------] 5 tests from OrderBookTest
-[ RUN      ] OrderBookTest.AddSingleLimitOrder
-[       OK ] OrderBookTest.AddSingleLimitOrder (0 ms)
-[----------] 5 tests from OrderBookTest (2 ms total)
-
-[----------] 4 tests from RiskEngineTest  
-[----------] 3 tests from WebSocketTest
-[----------] 3 tests from IntegrationTest
-
-[==========] 15 tests from 4 test suites ran. (15 ms total)
-[  PASSED  ] 15 tests.
-```
-
----
-
-## Performance
-
-### Benchmarks
-
-<div align="center">
-
-| Metric | Value | Description |
-|--------|--------|-------------|
-| **Order Processing** | < 50μs | Time to process and match an order |
-| **Risk Check** | < 5μs | Pre-trade risk validation time |
-| **GUI Updates** | 60 FPS | Real-time dashboard refresh rate |
-| **Memory Usage** | < 100MB | Runtime memory footprint |
-| **Throughput** | 10K orders/sec | Maximum sustainable order rate |
-
-</div>
-
-### Latency Distribution
-
-```
-Order Processing Latency (microseconds)
-P50:  15μs  ████████████████████████████████████████
-P95:  45μs  ██████████████████████████████████████████████████
-P99:  85μs  ████████████████████████████████████████████████████████
-P99.9: 150μs ██████████████████████████████████████████████████████████████
-```
-
----
-
-## Contributing
-
-We welcome contributions! Here's how you can help:
-
-<div align="center">
-
-[![Contributors](https://contrib.rocks/image?repo=amank-23/cpp-trading-engine)](https://github.com/amank-23/cpp-trading-engine/graphs/contributors)
-
-</div>
-
-### Ways to Contribute
-
-- **Report bugs** and suggest fixes
-- **Propose new features** or enhancements  
-- **Improve documentation** and examples
-- **Add tests** and improve coverage
-- **Performance optimizations**
-
-### Development Setup
-
-```bash
-# Fork and clone your fork
-git clone https://github.com/YOUR-USERNAME/cpp-trading-engine.git
-
-# Create feature branch
-git checkout -b feature/amazing-feature
-
-# Make changes and test
-make test
-
-# Commit and push
-git commit -m "Add amazing feature"
-git push origin feature/amazing-feature
-
-# Open Pull Request
-```
-
-### Code Style
-
-- **C++ Standard**: C++17
-- **Style Guide**: Google C++ Style Guide
-- **Formatting**: clang-format
-- **Documentation**: Doxygen comments
-
----
-
-## 🔗 Related Projects
-
-- [HFT-System](https://github.com/example/hft-system) - High-frequency trading components
-- [Market-Data-API](https://github.com/example/market-data) - Real exchange connectivity
-- [Trading-Strategies](https://github.com/example/strategies) - Algorithmic trading strategies
+The project includes unit tests for the OrderBook component using Google Test framework.
 
 ---
 
@@ -475,21 +351,3 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 ```
-
----
-
-<div align="center">
-
-## Show Your Support
-
-Give a ⭐ if this project helped you!
-
-[![Star History](https://api.star-history.com/svg?repos=amank-23/cpp-trading-engine&type=Timeline)](https://star-history.com/#amank-23/cpp-trading-engine&Timeline)
-
-**[⬆ Back to top](#real-time-trading-system)**
-
----
-
-**Built with ❤️ by [amank-23](https://github.com/amank-23)**
-
-</div>
