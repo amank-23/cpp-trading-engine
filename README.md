@@ -301,7 +301,7 @@ This project is for educational purposes. See LICENSE file for details.
 
 ## Summary
 
-You now have a complete, professional-grade real-time trading system with:
+We now have a complete, professional-grade real-time trading system with:
 
 - **Core Trading Engine**: Price-time priority order matching  
 - **Real-time Market Data**: WebSocket-based data ingestion  
