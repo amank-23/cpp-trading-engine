@@ -88,8 +88,8 @@ A high-performance, enterprise-grade trading system implementing core financial 
 
 ### Live Trading System in Action
 
-<!-- Replace with your actual demo video -->
-https://user-images.githubusercontent.com/yourusername/demo-video.mp4
+<!-- Direct video embed from repository -->
+https://github.com/amank-23/cpp-trading-engine/raw/main/assets/videos/Demo.mp4
 
 *30-second demo showing real-time order matching, GUI updates, and risk management*
 

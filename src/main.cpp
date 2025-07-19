@@ -99,40 +99,82 @@ void market_data_handler(WebSocketClient& client, OrderBook& book, RiskEngine& r
 }
 
 /**
- * @brief Simulates an exchange sending market data to us.
+ * @brief Simulates an exchange sending market data to us for a 30-second demo.
  * @param client The WebSocket client to send messages through.
  * @param running An atomic flag to signal when to stop.
  */
 void simulate_exchange_feed(WebSocketClient& client, std::atomic<bool>& running) {
-    std::cout << "[SIMULATOR] Starting exchange feed simulation with risk limits..." << std::endl;
-    int i = 0;
-    while(running && i < 10) {
-        std::cout << "[SIMULATOR] Sending order pair " << (i+1) << "/10" << std::endl;
+    std::cout << "[SIMULATOR] Starting 30-second demo exchange feed simulation..." << std::endl;
+    
+    int cycle = 0;
+    double base_price = 50000.0; // Starting BTC price
+    std::vector<std::string> symbols = {"BTC-USD", "ETH-USD", "SOL-USD"};
+    std::vector<double> base_prices = {50000.0, 3000.0, 150.0};
+    
+    auto start_time = std::chrono::steady_clock::now();
+    auto demo_duration = std::chrono::seconds(30);
+    
+    while(running) {
+        auto elapsed = std::chrono::steady_clock::now() - start_time;
+        if (elapsed >= demo_duration) {
+            std::cout << "[SIMULATOR] 30-second demo completed!" << std::endl;
+            break;
+        }
         
-        // Simulate a buy order
+        cycle++;
+        int symbol_idx = cycle % 3; // Rotate through symbols
+        std::string symbol = symbols[symbol_idx];
+        double symbol_base = base_prices[symbol_idx];
+        
+        // Create realistic price movements
+        double price_variation = (cycle % 20) * 0.5 - 5.0; // -5 to +5 range
+        double buy_price = symbol_base + price_variation;
+        double sell_price = buy_price + (symbol_base * 0.001); // Small spread
+        
+        std::cout << "[SIMULATOR] Cycle " << cycle << " - Trading " << symbol 
+                  << " at ~$" << (int)buy_price << std::endl;
+        
+        // Simulate a buy order with varying quantities
         json buy_order;
         buy_order["type"] = "limit";
-        buy_order["symbol"] = "BTC-USD";
+        buy_order["symbol"] = symbol;
         buy_order["side"] = "buy";
-        buy_order["price"] = 100.0 + i;
-        buy_order["quantity"] = 25; // Larger quantities to test risk limits (was 15)
+        buy_order["price"] = buy_price;
+        buy_order["quantity"] = 10 + (cycle % 50); // 10-60 quantity range
         client.subscribe(buy_order.dump());
         
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        std::this_thread::sleep_for(std::chrono::milliseconds(800)); // Slower for demo
+        
+        if (!running) break;
 
         // Simulate a sell order
         json sell_order;
         sell_order["type"] = "limit";
-        sell_order["symbol"] = "BTC-USD";
+        sell_order["symbol"] = symbol;
         sell_order["side"] = "sell";
-        sell_order["price"] = 110.0 - i;
-        sell_order["quantity"] = 10;
+        sell_order["price"] = sell_price;
+        sell_order["quantity"] = 5 + (cycle % 25); // 5-30 quantity range
         client.subscribe(sell_order.dump());
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
-        i++;
+        std::this_thread::sleep_for(std::chrono::milliseconds(1200)); // Slower for demo
+        
+        // Every 5 cycles, add some larger orders to test risk management
+        if (cycle % 5 == 0) {
+            json large_order;
+            large_order["type"] = "limit";
+            large_order["symbol"] = symbol;
+            large_order["side"] = (cycle % 10 == 0) ? "buy" : "sell";
+            large_order["price"] = (cycle % 10 == 0) ? buy_price - 1 : sell_price + 1;
+            large_order["quantity"] = 100; // Large order to potentially trigger risk limits
+            
+            std::cout << "[SIMULATOR] Sending LARGE " << large_order["side"] 
+                      << " order for " << symbol << " - quantity: 100" << std::endl;
+            client.subscribe(large_order.dump());
+            
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        }
     }
-    std::cout << "[SIMULATOR] Exchange feed simulation completed." << std::endl;
+    std::cout << "[SIMULATOR] Exchange feed simulation completed after " << cycle << " cycles." << std::endl;
 }
 
 

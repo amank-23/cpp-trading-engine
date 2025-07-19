@@ -31,7 +31,7 @@ add_library(TradingSystemLib
 add_executable(TradingSystem src/main.cpp)
 
 # Create a backend test executable
-add_executable(BackendTest test_backend.cpp)
+add_executable(BackendTest tests/test_order_book.cpp)
 
 # --- Find Required Packages ---
 find_package(Threads REQUIRED)

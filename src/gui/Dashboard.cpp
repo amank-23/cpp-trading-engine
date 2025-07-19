@@ -45,7 +45,7 @@ void Dashboard::setup() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    window_ = glfwCreateWindow(1280, 720, "Real-Time Trading System Dashboard", NULL, NULL);
+    window_ = glfwCreateWindow(1600, 900, "Real-Time Trading System Dashboard", NULL, NULL);
     if (!window_) {
         glfwTerminate();
         throw std::runtime_error("Failed to create GLFW window");
@@ -56,6 +56,10 @@ void Dashboard::setup() {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
+    
+    // Increase font size for better visibility in screenshots/videos
+    io.FontGlobalScale = 1.8f;  // Make text 80% larger
+    
     // Note: Docking might not be available in all ImGui versions
     
     // Setup style
@@ -64,6 +68,9 @@ void Dashboard::setup() {
     style.WindowRounding = 5.0f;
     style.FrameRounding = 3.0f;
     style.Colors[ImGuiCol_WindowBg] = ImVec4(0.1f, 0.1f, 0.1f, 0.9f);
+    
+    // Scale up UI elements to match larger font
+    style.ScaleAllSizes(1.5f);  // Scale buttons, padding, etc.
 
     ImGui_ImplGlfw_InitForOpenGL(window_, true);
     ImGui_ImplOpenGL3_Init("#version 330");
