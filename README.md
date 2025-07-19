@@ -88,7 +88,21 @@ A high-performance, enterprise-grade trading system implementing core financial 
 
 ### Live Trading System in Action
 
-https://github.com/amank-23/cpp-trading-engine/raw/main/assets/videos/Demo.mp4
+<div align="center">
+
+**🎥 Click to play the demo video:**
+
+[![Trading System Demo](assets/screenshots/dashboard-overview.png)](https://github.com/amank-23/cpp-trading-engine/raw/main/assets/videos/Demo.mp4)
+
+</div>
+
+**Alternative method for direct video embedding:**
+
+1. Go to your GitHub repository
+2. Create a new issue or edit this README
+3. Drag and drop your `Demo.mp4` video into the text area
+4. GitHub will generate a direct link like: `https://github.com/user/repo/assets/12345/video-id.mp4`
+5. Replace the link above with that generated link for native video playback
 
 *30-second demo showing real-time order matching, GUI updates, and risk management*
 
