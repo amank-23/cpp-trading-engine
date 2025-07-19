@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Real-Time Trading System
+# Real-Time Trading System
 
 **A complete, multi-threaded real-time trading system built in C++**
 
@@ -17,7 +17,7 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
 - [Demo](#demo)
@@ -31,33 +31,33 @@
 
 ---
 
-## 🎯 Overview
+## Overview
 
 A high-performance, enterprise-grade trading system implementing core financial market infrastructure components. This system demonstrates advanced C++ programming techniques, real-time data processing, and financial software architecture patterns used in production trading environments.
 
 ### Key Highlights
-- 🏎️ **High Performance**: Sub-millisecond order matching
-- 🔒 **Thread Safe**: Concurrent multi-threaded architecture
-- 📊 **Real-time GUI**: Live ImGui dashboard
-- 🛡️ **Risk Management**: Pre-trade and position controls
-- 🧪 **Fully Tested**: Comprehensive unit and integration tests
-- 📈 **Production Ready**: Enterprise-level code quality
+- **High Performance**: Sub-millisecond order matching
+- **Thread Safe**: Concurrent multi-threaded architecture
+- **Real-time GUI**: Live ImGui dashboard
+- **Risk Management**: Pre-trade and position controls
+- **Fully Tested**: Comprehensive unit and integration tests
+- **Production Ready**: Enterprise-level code quality
 
 ---
 
-## ✨ Features
+## Features
 
 <table>
 <tr>
 <td width="50%">
 
-### 🏦 Core Trading Engine
+### Core Trading Engine
 - **Order Book**: Price-time priority matching
 - **Order Types**: Limit orders with market order support
 - **Trade Execution**: Real-time matching engine
 - **Order Management**: Add, modify, cancel operations
 
-### 🌐 Market Data
+### Market Data
 - **WebSocket Client**: Real-time data ingestion
 - **JSON Processing**: High-performance parsing
 - **Message Queue**: Thread-safe producer-consumer
@@ -66,13 +66,13 @@ A high-performance, enterprise-grade trading system implementing core financial 
 </td>
 <td width="50%">
 
-### 🛡️ Risk Management
+### Risk Management
 - **Position Tracking**: Real-time portfolio monitoring
 - **Pre-trade Checks**: Risk validation before execution
 - **Exposure Limits**: Configurable position limits
 - **P&L Calculation**: Real-time profit/loss tracking
 
-### 🎮 Live Dashboard
+### Live Dashboard
 - **Order Book Display**: Real-time bid/ask visualization
 - **Portfolio Panel**: Position and P&L monitoring  
 - **Trade History**: Execution log with full details
@@ -84,25 +84,18 @@ A high-performance, enterprise-grade trading system implementing core financial 
 
 ---
 
-## 🎬 Demo
+## Demo
 
 ### Live Trading System in Action
 
 <div align="center">
 
-**🎥 Click to play the demo video:**
-
-[![Trading System Demo](assets/screenshots/dashboard-overview.png)](https://github.com/amank-23/cpp-trading-engine/raw/main/assets/videos/Demo.mp4)
+<video width="800" controls>
+  <source src="https://github.com/amank-23/cpp-trading-engine/raw/main/assets/videos/Demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 </div>
-
-**Alternative method for direct video embedding:**
-
-1. Go to your GitHub repository
-2. Create a new issue or edit this README
-3. Drag and drop your `Demo.mp4` video into the text area
-4. GitHub will generate a direct link like: `https://github.com/user/repo/assets/12345/video-id.mp4`
-5. Replace the link above with that generated link for native video playback
 
 *30-second demo showing real-time order matching, GUI updates, and risk management*
 
@@ -110,7 +103,7 @@ A high-performance, enterprise-grade trading system implementing core financial 
 
 <div align="center">
 
-#### 📊 Real-Time Dashboard
+#### Real-Time Dashboard
 ![Dashboard Overview](assets/screenshots/dashboard-overview.png)
 *Complete trading dashboard with order book, portfolio, and trade history*
 
@@ -144,7 +137,7 @@ A high-performance, enterprise-grade trading system implementing core financial 
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 <div align="center">
 
@@ -183,7 +176,7 @@ graph TB
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ### Prerequisites
 
@@ -270,7 +263,7 @@ conan install . --install-folder=build --build=missing
 
 ---
 
-## 💻 Usage
+## Usage
 
 ### Running Different Components
 
@@ -334,7 +327,7 @@ if (risk_engine->check_pre_trade_risk(*order)) {
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Test Suite Overview
 
@@ -380,7 +373,7 @@ make test
 
 ---
 
-## 📊 Performance
+## Performance
 
 ### Benchmarks
 
@@ -408,7 +401,7 @@ P99.9: 150μs ██████████████████████
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Here's how you can help:
 
@@ -420,11 +413,11 @@ We welcome contributions! Here's how you can help:
 
 ### Ways to Contribute
 
-- 🐛 **Report bugs** and suggest fixes
-- 💡 **Propose new features** or enhancements  
-- 📖 **Improve documentation** and examples
-- 🧪 **Add tests** and improve coverage
-- ⚡ **Performance optimizations**
+- **Report bugs** and suggest fixes
+- **Propose new features** or enhancements  
+- **Improve documentation** and examples
+- **Add tests** and improve coverage
+- **Performance optimizations**
 
 ### Development Setup
 
@@ -462,7 +455,7 @@ git push origin feature/amazing-feature
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -486,9 +479,9 @@ copies or substantial portions of the Software.
 
 <div align="center">
 
-## 🌟 Show Your Support
+## Show Your Support
 
-Give a ⭐️ if this project helped you!
+Give a ⭐ if this project helped you!
 
 [![Star History](https://api.star-history.com/svg?repos=amank-23/cpp-trading-engine&type=Timeline)](https://star-history.com/#amank-23/cpp-trading-engine&Timeline)
 
